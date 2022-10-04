@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  height: 1500px;
+  width: 2000px;
+  display: flex;
+}
+
+.vehicules {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 100px;
+}
+
+.vehicule {
+  width: 23%;
+}
+
+.li-vehicule {
+  border: 1px solid #C0C0C0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 60%;
+  list-style-type: none;
+}
+
+.cmp-style p {
+  width: 80%;
+}
+
+.App-drag {
+  border: 2px solid red;
+  width: 50%;
+}
+
+.listeSinistre {
+  border: 1px purple solid;
+  margin: 10px;
+}
+
+.sinistre-component {
+  width: 20%;
+  list-style-type: none;
+  border: red solid 1px;
+  border-radius: 10px;
+}

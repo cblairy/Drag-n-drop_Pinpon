@@ -1,0 +1,84 @@
+
+################################################################################
+                                      Notes
+################################################################################
+
+ReactRouterBasicUsage
+---------------------
+
+Dans cet exemple basique du routeur de React on utilise les composants et methodes
+les plus fréquemment utilisés (Il y en a d'autres...) du module 'react-router-dom'
+
+Ce module et indépendnat de React et n'est pas installé lorsque vous créez votre
+projet avec la commande [npx create-react-app <project_name>], il faut donc l'installé:
+
+    npm install react-router-dom
+
+Composants utilisés dans cet exemple:
+
+    BrowserRouter: Enveloppe du router
+    Routes: Conteneur des routes
+    Route: Une route (Peuvent être imbriqués)
+    Link: Version React de la balise <a> en html
+    Outlet: Rendu de la route parent lors de l'imbrication de routes
+    Navigate: Effectue une redirection
+
+Methodes utilisées dans cet exemple:
+
+    useLocation(): Version React de 'location' en js
+    useParams(): Retourne les paramètres définis avec ':' dans la configuration de la route
+
+Cet exemple peut bien évidemment être découpé de manière plus optimisée...
+
+################################################################################
+
+Erreur WebSocket
+----------------
+
+"Firefox ne peut établir de connexion avec le serveur à l’adresse ws://127.0.0.1:3000/ws"
+
+Vous l'avez surement découvert mais en mode développement (Uniquement) React utilise
+WebSocket pour le rechargement automatique après une modification (Hot Reload)
+
+Par défaut React fonctionne sur le port 3000 ! Dans notre conteneur le port
+interne est bien à 3000 mais vue de l'exterrieur notre conteneur est configurer
+pour fonctionner sur le port 80. Ce qui explique que le navigateur ne puisse pas
+se connecter à ws://127.0.0.1:3000/ws
+
+Le problème peut être résolu en faisant correspondre les configurations suivante:
+
+dans <package.json>
+    "start": "PORT=8080 react-scripts start",
+
+dans <DockerTools.sh>
+    host_port="8080";
+    ctn_port="8080";
+
+Remarque: Le port 80 nécessite des droits admin, je l'ai donc déplacé sur 8080
+
+################################################################################
+
+Info supplémentaires
+--------------------
+
+Vous les aurez surement découvert, mais dans le doute j'apporte quelque précisions:
+
+------------------------------------------------------------
+
+Bien que très intéressante l'utilisation des contextes doit être faite avec modération !
+Elle peut éventuellement poser des problèmes pour la réutilisation de certains composants
+Bien réfléchir avant de l'utiliser !!!
+
+------------------------------------------------------------
+
+<React.StrictMode> (Développement seulement)
+    Permet de détecter/identifier de mauvaises pratiques et élements dépréciés
+
+------------------------------------------------------------
+
+reportWebVitals() (Développement seulement)
+    Fournit des outils pour la mesure et l'analyse des performances de l'application
+
+################################################################################
+
+Happy Hacking à tous...
